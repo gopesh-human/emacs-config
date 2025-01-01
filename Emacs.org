@@ -2,7 +2,7 @@
 #+AUTHOR: Gopesh Sharma
 #+PROPERTY: header-args :tangle "~/.config/emacs/init.el"
 
-* TODO
+* TODO TODO
 - [X] Basic UI Settings
 - [ ] Set up basic packages.
   - [ ] Evil
