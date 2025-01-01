@@ -313,3 +313,104 @@ Make sure underline is positioned at the very bottom.
 #+begin_src emacs-lisp
 
 #+end_src
+
+** TODO Pairing
+
+** TODO PDF Tools
+
+
+* TODO COMPLETION
+
+
+* TODO PROGRAMMING
+
+
+* MINIBUFFER AND MODELINE
+** TODO Consult
+
+** Vertico
+Vertico provides a performant and minimalist vertical completion UI based on the default completion system but aims to be highly flexible, extensible and modular.
+#+begin_src emacs-lisp
+(require 'vertico)
+
+(setq vertico-resize nil       ; How to resize the Vertico minibuffer window
+      vertico-count 8          ; Maximal number of candidates to show
+      vertico-count-format nil) ; No prefix with the number of entries
+
+(vertico-mode 1)
+#+end_src
+
+** Marginalia
+#+begin_src emacs-lisp
+(require 'marginalia)
+
+(setq-default marginalia--ellipsis "…"
+              marginalia-align 'right
+              marginalia-align-offset -1)
+
+(marginalia-mode 1)
+#+end_src
+
+
+* ORG
+** General
+#+begin_src emacs-lisp
+(setq-default org-ellipsis "…"              ; Nicer ellipsis
+              org-tags-column 1              ; Tags next to header title
+              org-hide-emphasis-markers t    ; Hide markers
+              org-cycle-separator-lines 2    ; Number of empty lines between sections
+              org-use-tag-inheritance nil    ; Tags ARE NOT inherited 
+              org-use-property-inheritance t ; Properties ARE inherited
+              org-indent-indentation-per-level 2 ; Indentation per level
+              org-link-use-indirect-buffer-for-internals t ; Indirect buffer for internal links
+              org-fontify-quote-and-verse-blocks t ; Specific face for quote and verse blocks
+              org-return-follows-link nil    ; Follow links when hitting return
+              org-image-actual-width nil     ; Resize image to window width
+              org-indirect-buffer-display 'other-window ; Tab on a task expand it in a new window
+              org-outline-path-complete-in-steps nil) ; No steps in path display
+#+end_src
+
+** Structural Templates
+#+begin_src emacs-lisp
+(require 'org-tempo)
+(dolist (item '(("sh" . "src sh")
+                ("el" . "src emacs-lisp")
+                ("li" . "src lisp")
+                ("sc" . "src scheme")
+                ("ts" . "src typescript")
+                ("py" . "src python")
+                ("go" . "src go")
+                ("yaml" . "src yaml")
+                ("json" . "src json")))
+  (add-to-list 'org-structure-template-alist item))
+#+end_src
+
+** Modernize org-mode
+#+begin_src emacs-lisp
+(require 'org-modern)
+(add-hook 'org-mode-hook 'org-modern-mode)
+ #+end_src
+
+
+* TODO LATEX
+
+
+* TODO TYPST
+
+
+* KEYBINDING
+** Evil
+Fine, make me you villian.
+#+begin_src emacs-lisp
+(require 'evil)
+(evil-mode 1)
+#+end_src
+
+** TODO General keybindings
+
+
+* Testing
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.config/emacs/lisp")
+(require 'testing)
+#+end_src
